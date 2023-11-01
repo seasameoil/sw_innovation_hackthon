@@ -1,11 +1,18 @@
 import time, json
 from AWSIoTPythonSDK.MQTTLib import AWSIoTMQTTClient
 
+count = [0]
+fire = [False]
+crime = ["OFF"]
+
 def helloword1(self, params, packet):
     print('Received Message from AWS IoT Core')
     print('Topic: ' + packet.topic)
     value = json.loads(packet.payload.decode('utf-8'))
     print("Payload: ", value)
+    count[0] = value['count']
+    fire[0] = value['fire']
+    crime[0] = value['crime']
 
 
 def helloword2(self, params, packet):
@@ -13,6 +20,7 @@ def helloword2(self, params, packet):
     print('Topic: ' + packet.topic)
     value = json.loads(packet.payload.decode('utf-8'))
     print("Payload: ", value)
+    fire[0] = value['fire']
 
 
 def helloword3(self, params, packet):
@@ -29,8 +37,7 @@ myMQTTClinet.configureDrainingFrequency(2)
 myMQTTClinet.configureConnectDisconnectTimeout(10)
 myMQTTClinet.configureMQTTOperationTimeout(5)
 print("Initiating IoT Core Topic ...")
-
-myMQTTClinet.subscribe("/101/in", 1, helloword1)
-myMQTTClinet.subscribe("/101/out", 1, helloword2)
-myMQTTClinet.subscribe("/111/in", 1, helloword3)
 myMQTTClinet.connect()
+
+myMQTTClinet.subscribe("test1", 1, helloword1)
+
