@@ -1,0 +1,28 @@
+.bus {
+  border: none;
+  display: inline-block;
+  padding: 35px 50px;
+  border-radius: 15px;
+  font-family: "paybooc-Light", sans-serif;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 25px;
+  transition: 0.25s;
+  margin: auto;
+  text-decoration-line: none;
+  color: black;
+}
+
+.bus_box {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  margin-top: 150px;
+}
+
+.clicked {
+  background-color: #73cdd1;
+  opacity: 50%;
+  color: white;
+}

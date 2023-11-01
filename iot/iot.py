@@ -5,6 +5,7 @@ count = [0]
 fire = [False]
 crime = ["OFF"]
 
+
 def helloword1(self, params, packet):
     print('Received Message from AWS IoT Core')
     print('Topic: ' + packet.topic)
@@ -28,6 +29,7 @@ def helloword3(self, params, packet):
     print('Topic: ' + packet.topic)
     value = json.loads(packet.payload.decode('utf-8'))
     print("Payload: ", value)
+
 
 myMQTTClinet = AWSIoTMQTTClient("MyTest2")
 myMQTTClinet.configureEndpoint("a34lkk6u0zedod-ats.iot.ap-northeast-2.amazonaws.com", 8883)
