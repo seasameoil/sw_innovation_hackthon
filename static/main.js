@@ -1,40 +1,28 @@
 let socket = new WebSocket('ws://localhost:8000/ws/graph/');
 
 socket.onmessage = function(e) {
+    var pageUrl = window.location.href;
+    var last = pageUrl.substring(pageUrl.length-4);
+
     let djangoData = JSON.parse(e.data);
     console.log(djangoData);
 
-    document.querySelector('#hour').innerHTML = djangoData.hour;
+    if (last == "main") {
 
-    if (last == "bus2") {
-        document.querySelector('#total2').innerHTML = djangoData.value2;
-        document.querySelector('#value2').innerHTML = djangoData.cong2;
-        if (cong2 == "여유") {
-            document.querySelector('#value2').style = "green";
+        if (djangoData.fire == 'True') {
+             document.getElementById('btn1').className = 'bus blink';
+             document.getElementById('btn2').className = 'bus';
+             document.getElementById('btn3').className = 'bus';
+        // } else if (djangoData.count == true) {
+            // document.getElementById('btn1').className = 'bus';
+            // document.getElementById('btn2').className = 'bus blink';
+            // document.getElementById('btn3').className = 'bus';
+        } else if (djangoData.crime == 'ON') {
+            document.getElementById('btn1').className = 'bus';
+            document.getElementById('btn2').className = 'bus';
+            document.getElementById('btn3').className = 'bus blink';
         }
-        else if (cong2 == "보통") {
-            document.querySelector('#value2').style = "blue";
-        }
-        else if (cong2 == "혼잡") {
-            document.querySelector('#value2').style = "yellow";
-        }
-        else {
-            document.querySelector('#value2').style = "red";
-        }
-    } else {
-        document.querySelector('#total1').innerHTML = djangoData.value1;
-        document.querySelector('#value1').innerHTML = djangoData.cong1;
-        if (cong1 == "여유") {
-            document.querySelector('#value1').style = "green";
-        }
-        else if (cong1 == "보통") {
-            document.querySelector('#value1').style = "blue";
-        }
-        else if (cong1 == "혼잡") {
-            document.querySelector('#value1').style = "yellow";
-        }
-        else {
-            document.querySelector('#value1').style = "red";
-        }
+
+        document.getElementById('count').innerHTML = djangoData.count;
     }
 }

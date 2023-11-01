@@ -6,7 +6,6 @@ import iot.iot
 
 
 def index(request):
-    context = {'text': "hello world"}
     return render(request, 'index.html')
 
 

@@ -6,17 +6,13 @@ from asyncio import sleep
 
 from channels.generic.websocket import AsyncWebsocketConsumer
 
-import iot.iot
+from iot.iot import count, fire, crime
 
 
 class GraphConsumer(AsyncWebsocketConsumer):
     async def connect(self):
         await self.accept()
         while True:
-            congestion = 0
-            congestion2 = 0
 
-
-            await self.send(json.dumps({'value1': total, 'cong1': congestion, 'hour': hour,
-                                        'value2': total2, 'cong2': congestion2, 'add1': add1, 'add2': add2, 'dir1':dir1, 'dir2':dir2}))
+            await self.send(json.dumps({'count':count, 'fire':fire, 'crime':crime}))
             await sleep(2)
