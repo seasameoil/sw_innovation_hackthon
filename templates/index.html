@@ -20,12 +20,16 @@
         <div id="header_explain">영상 분석을 통한 IoT 자동화 시스템</div>
     </div>
 
+    <div class="count_box">
+        <div id="count_box_box">인원 수 : </div>
+        <div id="count">{{ text }}</div>
+    </div>
 
     <!-- 버스 버튼 -->
     <div class="bus_box">
-      <a class="bus" href="/fire">화재</a>
-      <a class="bus" href="/robber">방범</a>
-      <a class="bus" href="/accident">사고</a>
+      <a class="bus" href="/fire" id="btn1">화재</a>
+      <a class="bus" href="/robber" id="btn2">방범</a>
+      <a class="bus" href="/accident" id="btn3">사고</a>
     </div>
 
 {#    <script src="{% static 'chart.js' %}"></script>#}
@@ -57,5 +61,7 @@
           </div>
       </div>
   </div>
+
+  <script src="{% static 'main.js' %}"></script>
   </body>
 </html>

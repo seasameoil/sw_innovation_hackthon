@@ -26,3 +26,21 @@
   opacity: 50%;
   color: white;
 }
+
+@keyframes blink-effect {
+  0% {
+    background-color: #ff6347;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    background-color: #ff6347;
+  }
+
+}
+
+.blink {
+  animation: blink-effect 1s step-end 10;
+  /* background-color: #ff6347; */
+}
