@@ -4,6 +4,7 @@ from AWSIoTPythonSDK.MQTTLib import AWSIoTMQTTClient
 count = [0]
 fire = [False]
 crime = ["OFF"]
+
 def helloword1(self, params, packet):
     print('Received Message from AWS IoT Core')
     print('Topic: ' + packet.topic)
@@ -12,7 +13,6 @@ def helloword1(self, params, packet):
     count[0] = value['count']
     fire[0] = value['fire']
     crime[0] = value['crime']
-
 
 
 myMQTTClinet = AWSIoTMQTTClient("MyTest2")
@@ -24,5 +24,7 @@ myMQTTClinet.configureConnectDisconnectTimeout(10)
 myMQTTClinet.configureMQTTOperationTimeout(5)
 print("Initiating IoT Core Topic ...")
 
-myMQTTClinet.subscribe("test1", 1, helloword1)
 myMQTTClinet.connect()
+
+myMQTTClinet.subscribe("test1", 1, helloword1)
+
