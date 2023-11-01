@@ -9,6 +9,7 @@
       <link rel="stylesheet" href="../static/css/footer.css" />
       <link rel="stylesheet" href="../static/css/button.css" />
       <link rel="stylesheet" href="../static/css/header.css" />
+      <link rel="stylesheet" href="../static/css/count.css" />
 
   </head>
   <body>
@@ -20,9 +21,19 @@
         <div id="header_explain">영상 분석을 통한 IoT 자동화 시스템</div>
     </div>
 
-    <div class="count_box">
-        <div id="count_box_box">인원 수 : </div>
-        <div id="count">{{ text }}</div>
+    <div class="data_box" id="marr">
+      <span class="data">인원수 : </span>
+      <span class="data" id="count">{{ text }}</span>
+    </div>
+
+    <div class="data_box">
+        <span class="data">온도 : </span>
+        <span class="data" id="temp">{{ text }}</span>
+    </div>
+
+    <div class="data_box">
+        <span class="data">밝기 : </span>
+        <span class="data" id="light">{{ text }}</span>
     </div>
 
     <!-- 버스 버튼 -->
