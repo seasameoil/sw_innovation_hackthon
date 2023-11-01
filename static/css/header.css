@@ -1,0 +1,19 @@
+#name {
+    color: white;
+    font-weight: 500;
+    font-size: 45px;
+    padding-top: 100px;
+}
+
+.header {
+    background-color: #73cdd1;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+}
+
+#header_explain {
+    font-size: 20px;
+    color: white;
+    padding-top: 30px;
+}
